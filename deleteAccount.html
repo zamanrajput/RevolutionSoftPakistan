@@ -23,13 +23,40 @@
         form {
             margin-top: 20px;
         }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Account Deletion Request</h1>
         <p>Enter your email to request account deletion:</p>
-        <form id="deletionForm" action="#">
+        <form id="deletionForm">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             <br>
@@ -41,14 +68,31 @@
     <script>
         const deletionForm = document.getElementById('deletionForm');
         const confirmationMessage = document.getElementById('confirmationMessage');
+        const emailInput = document.getElementById('email');
 
         deletionForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // You can add JavaScript to process the request here.
-            // For this static HTML example, we'll simply show the confirmation message.
-            confirmationMessage.style.display = 'block';
-            deletionForm.style.display = 'none';
+            const email = emailInput.value;
+            const apiEndpoint = 'https://nasipaipon.com/laravel/public/api/account/delete'; // Replace with your actual API endpoint
+
+            // Create a POST request to your API
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Assuming the API responds with a success message
+                confirmationMessage.style.display = 'block';
+                deletionForm.style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         });
     </script>
 </body>
