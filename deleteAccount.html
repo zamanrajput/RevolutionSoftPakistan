@@ -2,17 +2,41 @@
 <html>
 <head>
     <title>Account Deletion Request</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Account Deletion Request</h1>
-    <p>Enter your email to request account deletion:</p>
-    <form id="deletionForm" action="#">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br>
-        <input type="submit" value="Submit Request">
-    </form>
-    <p id="confirmationMessage" style="display: none;">Your request for account deletion is in process.</p>
+    <div class="container">
+        <h1>Account Deletion Request</h1>
+        <p>Enter your email to request account deletion:</p>
+        <form id="deletionForm" action="#">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <input type="submit" value="Submit Request">
+        </form>
+        <p id="confirmationMessage" style="display: none;">Your request for account deletion is in process.</p>
+    </div>
 
     <script>
         const deletionForm = document.getElementById('deletionForm');
