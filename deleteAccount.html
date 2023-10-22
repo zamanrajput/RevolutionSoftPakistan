@@ -69,7 +69,8 @@
         const deletionForm = document.getElementById('deletionForm');
         const confirmationMessage = document.getElementById('confirmationMessage');
         const emailInput = document.getElementById('email');
-
+          confirmationMessage.style.display = 'block';
+            deletionForm.style.display = 'none';
         deletionForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
