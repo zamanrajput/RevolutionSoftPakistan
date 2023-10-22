@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Deletion Request</title>
+</head>
+<body>
+    <h1>Account Deletion Request</h1>
+    <p>Enter your email to request account deletion:</p>
+    <form id="deletionForm" action="#">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <input type="submit" value="Submit Request">
+    </form>
+    <p id="confirmationMessage" style="display: none;">Your request for account deletion is in process.</p>
+
+    <script>
+        const deletionForm = document.getElementById('deletionForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        deletionForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // You can add JavaScript to process the request here.
+            // For this static HTML example, we'll simply show the confirmation message.
+            confirmationMessage.style.display = 'block';
+            deletionForm.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
